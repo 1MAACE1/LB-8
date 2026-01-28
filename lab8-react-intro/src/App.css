@@ -1,0 +1,373 @@
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+}
+
+.add-task-form {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.task-input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.todo-list {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.todo-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.task-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.delete-button {
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.todo-list p {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+/* ===== СТИЛИ ДЛЯ СПИСКА ЗАДАЧ ===== */
+
+/* Контейнер списка задач */
+.todo-list {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f5f5f5);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок списка */
+.todo-list h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+  font-size: 1.5rem;
+}
+
+/* Контейнер для элементов списка */
+.todo-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Стили для пустого списка */
+.todo-list p {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 2px dashed #bdc3c7;
+}
+
+/* Анимация появления элементов списка */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-list ul {
+  animation: fadeIn 0.5s ease-out;
+}
+
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  background: white;
+  border-radius: 10px;
+  border-left: 5px solid #3498db;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  background: #f8fafc;
+  border-left-color: #2ecc71;
+}
+
+/* Текст задачи */
+.task-text {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  padding-right: 15px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+/* Индикатор статуса (можно добавить для выполненных задач) */
+.task-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #3498db;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.task-status.completed {
+  background: #2ecc71;
+}
+
+/* Кнопка удаления */
+.delete-button {
+  padding: 8px 16px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.delete-button:hover {
+  background: #c0392b;
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(231, 76, 60, 0.3);
+}
+
+.delete-button:active {
+  transform: scale(0.98);
+}
+
+/* Иконка в кнопке удаления */
+.delete-button::before {
+  content: "🗑️";
+  font-size: 0.9em;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 600px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+  
+  .task-text {
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+  
+  .delete-button {
+    align-self: flex-end;
+  }
+}
+
+/* ===== СТИЛИ ДЛЯ LOCALSTORAGE ФУНКЦИОНАЛА ===== */
+
+/* Индикатор сохранения */
+.save-indicator {
+  background: #e8f4fd;
+  border: 1px solid #3498db;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.save-status {
+  background: #2ecc71;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Информация о задачах */
+.tasks-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  border-left: 4px solid #3498db;
+}
+
+.tasks-count {
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+.tasks-count strong {
+  background: #3498db;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 5px;
+}
+
+.storage-info {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.storage-info::before {
+  content: "💾";
+  font-size: 0.9em;
+}
+
+/* Управление хранилищем */
+.storage-controls {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.clear-storage-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clear-storage-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.storage-hint {
+  display: block;
+  margin-top: 8px;
+  color: #95a5a6;
+  font-size: 0.8rem;
+}
+
+/* Анимация сохранения */
+@keyframes savePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.saving {
+  animation: savePulse 0.5s ease;
+}
+
+/* Индикатор загрузки из localStorage */
+.loading-indicator {
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.loading-indicator::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3498db;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
